@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">CalculateTest</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_button">Enter</string>
+    <string name="score_record">Highest Score:%d</string>
+    <string name="button0">0</string>
+    <string name="button1">1</string>
+    <string name="button2">2</string>
+    <string name="button3">3</string>
+    <string name="button4">4</string>
+    <string name="button5">5</string>
+    <string name="button6">6</string>
+    <string name="button7">7</string>
+    <string name="button8">8</string>
+    <string name="button9">9</string>
+    <string name="buttonclear">C</string>
+    <string name="buttonok">OK</string>
+    <string name="score">Score:%d</string>
+    <string name="input_indcator">Your Answer:</string>
+    <string name="equal">=</string>
+    <string name="lose_img_message">lose image</string>
+    <string name="win_img_message">win image</string>
+    <string name="lose_img">you lose!</string>
+    <string name="win_img">you win!</string>
+    <string name="win_score">Your Score:%d</string>
+    <string name="lose_score">Your Score:%d</string>
+    <string name="back_to_home">Back</string>
+    
+    <string name="KEY_HIGH_SCORE">key_high_score</string>
+    <string name="KEY_LEFT_NUM">key_left_num</string>
+    <string name="KEY_RIGHT_NUM">key_right_num</string>
+    <string name="KEY_OPERATOR">key_operator</string>
+    <string name="KEY_ANSWER">key_answer</string>
+    <string name="KEY_CURRENT_SCORE">key_current_score</string>
+    <string name="SAVE_SHP_DATA_NAME">save_shp_data_name</string>
+
+</resources>

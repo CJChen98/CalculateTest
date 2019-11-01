@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="big_text">50sp</dimen>
+    <dimen name="hug_text">60sp</dimen>
+    <dimen name="mid_text">30sp</dimen>
+</resources>
