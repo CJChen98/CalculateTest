@@ -26,7 +26,7 @@ public class MyViewModel extends AndroidViewModel {
         super(application);
         if (!handle.contains(key_hs)) {
             SharedPreferences shp = getApplication().getSharedPreferences(key_ssdn, Context.MODE_PRIVATE);
-            handle.set(key_hs, shp.getInt(key_hs, 0));
+            handle.set(key_hs, shp.getInt(key_ssdn, 0));
             handle.set(key_ln, 0);
             handle.set(key_o, "+");
             handle.set(key_rn, 0);

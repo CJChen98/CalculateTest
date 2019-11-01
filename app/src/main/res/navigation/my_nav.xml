@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/homeFragment"
+        android:label="@string/nav_title_home"
         android:name="com.example.calculatetest.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_testFragment"
             app:destination="@id/testFragment" />
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/loseFragment"
         android:name="com.example.calculatetest.LoseFragment"
-        android:label="fragment_lose"
+        android:label="@string/nav_title_lose"
         tools:layout="@layout/fragment_lose" >
         <action
             android:id="@+id/action_loseFragment_to_homeFragment"
@@ -26,7 +26,7 @@
     <fragment
         android:id="@+id/testFragment"
         android:name="com.example.calculatetest.TestFragment"
-        android:label="fragment_test"
+        android:label="@string/nav_title_test"
         tools:layout="@layout/fragment_test" >
         <action
             android:id="@+id/action_testFragment_to_loseFragment"
@@ -38,7 +38,7 @@
     <fragment
         android:id="@+id/winFragment"
         android:name="com.example.calculatetest.WinFragment"
-        android:label="fragment_win"
+        android:label="@string/nav_title_win"
         tools:layout="@layout/fragment_win" >
         <action
             android:id="@+id/action_winFragment_to_homeFragment"

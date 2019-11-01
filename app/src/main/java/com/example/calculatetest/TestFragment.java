@@ -4,6 +4,7 @@ package com.example.calculatetest;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.SavedStateVMFactory;
@@ -33,13 +34,14 @@ public class TestFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.fragment_test, container, false);
         final MyViewModel myViewModel;
         myViewModel = ViewModelProviders.of(requireActivity(), new SavedStateVMFactory(requireActivity())).get(MyViewModel.class);
         myViewModel.generator();
+        myViewModel.getCurrentScore().setValue(0);
 
         final FragmentTestBinding binding;
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_test, container, false);

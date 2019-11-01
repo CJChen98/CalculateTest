@@ -29,6 +29,13 @@
     <string name="answer_correct">Correct!</string>
     <string name="back_to_home">Back</string>
     <string name="answerisempty">answer can\'t be empty</string>
+    <string name="dialog_title">Are you sure quit ?</string>
+    <string name="dialog_positive">OK</string>
+    <string name="dialog_negative">Cancel</string>
+    <string name="nav_title_home">Welcome</string>
+    <string name="nav_title_test">Test Begin</string>
+    <string name="nav_title_lose">Lose</string>
+    <string name="nav_title_win">Win</string>
 
     <string name="KEY_HIGH_SCORE">key_high_score</string>
     <string name="KEY_LEFT_NUM">key_left_num</string>
