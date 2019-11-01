@@ -20,7 +20,7 @@ public class MyViewModel extends AndroidViewModel {
             key_rn = String.valueOf(R.string.KEY_RIGHT_NUM),
             key_anwser = String.valueOf(R.string.KEY_ANSWER),
             key_cs = String.valueOf(R.string.KEY_CURRENT_SCORE);
-    private boolean win_flag = false;
+    boolean win_flag = false;
 
     public MyViewModel(@NonNull Application application, SavedStateHandle handle) {
         super(application);
@@ -56,12 +56,12 @@ public class MyViewModel extends AndroidViewModel {
         return handle.getLiveData(key_cs);
     }
 
-    public MutableLiveData<Integer> getAnswer() {
+    MutableLiveData<Integer> getAnswer() {
         return handle.getLiveData(key_anwser);
     }
 
     void generator() {
-        int level = 20;
+        int level = 25;
         Random random = new Random();
         int x, y;
         x = random.nextInt(level) + 1;
@@ -86,11 +86,12 @@ public class MyViewModel extends AndroidViewModel {
             } else {
                 getAnswer().setValue(y - x);
                 getLeftNum().setValue(y);
-                getRightNum().setValue(y - x);
+                getRightNum().setValue(x);
             }
         }
     }
 
+    @SuppressWarnings("ConstantConditions")
     void save() {
         SharedPreferences sharedPreferences = getApplication().getSharedPreferences(key_ssdn, Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = sharedPreferences.edit();
@@ -98,6 +99,7 @@ public class MyViewModel extends AndroidViewModel {
         edit.apply();
     }
 
+    @SuppressWarnings("ConstantConditions")
     void AnswerCorrect() {
         getCurrentScore().setValue(getCurrentScore().getValue() + 1);
         if (getCurrentScore().getValue() > getHighScore().getValue()) {

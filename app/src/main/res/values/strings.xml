@@ -26,8 +26,10 @@
     <string name="win_img">you win!</string>
     <string name="win_score">Your Score:%d</string>
     <string name="lose_score">Your Score:%d</string>
+    <string name="answer_correct">Correct!</string>
     <string name="back_to_home">Back</string>
-    
+    <string name="answerisempty">answer can\'t be empty</string>
+
     <string name="KEY_HIGH_SCORE">key_high_score</string>
     <string name="KEY_LEFT_NUM">key_left_num</string>
     <string name="KEY_RIGHT_NUM">key_right_num</string>

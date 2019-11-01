@@ -9,10 +9,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.SavedStateVMFactory;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.calculatetest.databinding.FragmentHomeBinding;
 import com.example.calculatetest.databinding.FragmentTestBinding;
@@ -30,16 +33,18 @@ public class TestFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.fragment_test, container, false);
         final MyViewModel myViewModel;
         myViewModel = ViewModelProviders.of(requireActivity(), new SavedStateVMFactory(requireActivity())).get(MyViewModel.class);
-        final FragmentTestBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_test, container, false);
+        myViewModel.generator();
+
+        final FragmentTestBinding binding;
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_test, container, false);
         binding.setData(myViewModel);
         binding.setLifecycleOwner(requireActivity());
-
         final StringBuilder builder = new StringBuilder();
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -80,7 +85,7 @@ public class TestFragment extends Fragment {
                         break;
                 }
                 if (builder.length() == 0) {
-                    binding.textView11.setText(R.string.input_indcator);
+                    binding.textView11.setText(getString(R.string.input_indcator));
                 } else {
                     binding.textView11.setText(builder.toString());
                 }
@@ -98,15 +103,30 @@ public class TestFragment extends Fragment {
         binding.button9.setOnClickListener(listener);
         binding.buttonclear.setOnClickListener(listener);
         binding.buttonok.setOnClickListener(new View.OnClickListener() {
+            @SuppressWarnings("ConstantConditions")
             @Override
             public void onClick(View v) {
-                if (Integer.valueOf(builder.toString()).intValue() == myViewModel.getAnswer().getValue()){
-                    myViewModel.AnswerCorrect();
-
+                if (builder.length()==0){
+                    binding.textView11.setText(R.string.answerisempty);
+                }else {
+                    if (Integer.valueOf(builder.toString()).intValue() == myViewModel.getAnswer().getValue()) {
+                        myViewModel.AnswerCorrect();
+                        builder.setLength(0);
+                        binding.textView11.setText(R.string.answer_correct);
+                    } else {
+                        NavController controller = Navigation.findNavController(v);
+                        if (myViewModel.win_flag) {
+                            controller.navigate(R.id.action_testFragment_to_winFragment);
+                            myViewModel.win_flag = false;
+                            myViewModel.save();
+                        } else {
+                            controller.navigate(R.id.action_testFragment_to_loseFragment);
+                        }
+                    }
                 }
             }
         });
-
+        return binding.getRoot();
     }
 
 }
